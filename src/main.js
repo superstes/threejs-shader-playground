@@ -31,9 +31,10 @@ function main() {
 
 		const plane = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
 
-		const material = new THREE.ShaderMaterial({
+		const material = new THREE.RawShaderMaterial({
 			uniforms: {
 				u_resolution: new THREE.Uniform(new THREE.Vector2()),
+				// u_time: {value: Date.now()},
 			},
 			vertexShader: vertexShader.default,
 			fragmentShader: fragmentShader.default,
@@ -43,7 +44,7 @@ function main() {
 		const mesh = new THREE.Mesh(plane, material);
 		scene.add(mesh);
 
-		const canvas = document.querySelector('#glCanvas');
+		const canvas = document.getElementById('playground');
 
 		renderer = new THREE.WebGLRenderer({canvas});
 		renderer.setPixelRatio(window.devicePixelRatio);
@@ -62,6 +63,7 @@ function main() {
 
 	function render() {
 		const object = scene.children[0];
+		// object.material.uniforms.u_time = {value: Date.now()};
 		object.material.uniforms.u_resolution.value.x = window.innerWidth;
 		object.material.uniforms.u_resolution.value.y = window.innerHeight;  
 		renderer.render(scene, camera);

@@ -1,6 +1,11 @@
 export default /* glsl */`
 
-// precision
+precision mediump float;
+// precision highp int;
+
+// three.js built-ins
+// uniform vec3 cameraPosition;
+// uniform mat4 modelMatrix;
 
 uniform vec2 u_resolution;
 
