@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-// import * as vertexShader from './vertex.glsl.js';
+import * as vertexShader from './vertex.glsl.js';
 import * as fragmentShader from './fragment.glsl.js';
 
 function main() {
@@ -35,7 +35,7 @@ function main() {
 			uniforms: {
 				u_resolution: new THREE.Uniform(new THREE.Vector2()),
 			},
-			// vertexShader: vertexShader.default,
+			vertexShader: vertexShader.default,
 			fragmentShader: fragmentShader.default,
 			transparent: true,
 		});
