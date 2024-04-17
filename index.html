@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <title>Shader Playground</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+                position: relative;
+            }
+
+            div#container {
+                height: 100%;
+                width: 100vw;
+                left: 0;
+                bottom: 0;
+                position: fixed;
+            }
+
+            canvas {
+                height: 100%;
+                width: 100%;
+            }
+
+            #error {
+                background-color: chocolate;
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="error" hidden="hidden"></div>
+        <div id="container">
+            <canvas id="glCanvas"></canvas>
+        </div>
+
+        <script type="module" src="./src/main.js">
+        </script>
+
+    </body>
+</html>
