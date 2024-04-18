@@ -3,6 +3,9 @@ import * as THREE from 'three';
 import * as vertexShader from './vertex.glsl.js';
 import * as fragmentShader from './fragment.glsl.js';
 
+const clock = new THREE.Clock();
+
+
 function main() {
 	let container;
 	let camera, scene, renderer;
@@ -34,7 +37,7 @@ function main() {
 		const material = new THREE.RawShaderMaterial({
 			uniforms: {
 				u_resolution: new THREE.Uniform(new THREE.Vector2()),
-				// u_time: {value: Date.now()},
+				u_time: {value: 0.0},
 			},
 			vertexShader: vertexShader.default,
 			fragmentShader: fragmentShader.default,
@@ -63,7 +66,7 @@ function main() {
 
 	function render() {
 		const object = scene.children[0];
-		// object.material.uniforms.u_time = {value: Date.now()};
+		object.material.uniforms.u_time.value = clock.getElapsedTime();
 		object.material.uniforms.u_resolution.value.x = window.innerWidth;
 		object.material.uniforms.u_resolution.value.y = window.innerHeight;  
 		renderer.render(scene, camera);
